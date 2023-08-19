@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #clock {
+    height: 50vh;
+    width: 100%;
+    background-color:black;
+    color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+  }
+  h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color:purple;
+  
+  }
+</style>
+<body>
+    <h1>DIGITAL CLOCK</h1>
+    <p id="clock"></p>
+    <script>
+
+let clock = () => {
+  let date = new Date();
+  let hrs = date.getHours();
+  let mins = date.getMinutes();
+  let secs = date.getSeconds();
+
+  // whenever the number is less than 10, we are concatenating the number with a 0 in front of it,otherwise, we set the value that we are getting
+  hrs = hrs < 10 ? "0" + hrs : hrs;
+  mins = mins < 10 ? "0" + mins : mins;
+  secs = secs < 10 ? "0" + secs : secs;
+
+  let time = `${hrs}:${mins}:${secs}`;
+  document.getElementById("clock").innerText = time;
+  setTimeout(clock, 1000);//The setTimeout() method calls a function after a number of milliseconds.
+};
+
+clock();
+</script>
+    
+</body>
+</html>
